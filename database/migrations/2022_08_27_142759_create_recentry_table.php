@@ -14,7 +14,7 @@ class CreateRecentryTable extends Migration
     public function up()
     {
         Schema::create('recentry', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('shop_id')->unsigned();
             $table->timestamps();

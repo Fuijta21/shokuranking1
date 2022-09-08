@@ -13,8 +13,8 @@ class CreateShopTable extends Migration
      */
     public function up()
     {
-        Schema::create('shop', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('shops', function (Blueprint $table) {
+            $table->Increments('id');
             $table->string('address');
             $table->string('shop_name');
             $table->string('kakakutai');
@@ -34,6 +34,6 @@ class CreateShopTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shop');
+        Schema::dropIfExists('shops');
     }
 }

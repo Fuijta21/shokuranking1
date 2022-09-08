@@ -14,10 +14,10 @@ class CreateEvaluationTable extends Migration
     public function up()
     {
         Schema::create('evaluation', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
             $table->string('number_evaluation');
             $table->string('comment');
-            $table->integer('shop_id')->unsigned();
+            $table->Integer('shop_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

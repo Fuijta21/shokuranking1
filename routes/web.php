@@ -10,7 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*Route::get('/',funcion(){
+    return view('index');
+});*/
+use App\Http\Controllers\ShopController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[ShopController::class,'index'])
+    ->name('shop.index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
