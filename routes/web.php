@@ -16,7 +16,7 @@
 use App\Http\Controllers\ShopController;
 
 Route::get('/',[ShopController::class,'index'])
-    ->name('shop.index');
+    ->name('shop.index')->middleware('auth');
 
 Auth::routes();
 

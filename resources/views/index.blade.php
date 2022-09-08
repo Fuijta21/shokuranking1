@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -10,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
+        {{Auth::user()->name}}
         <div>
             <form action="{{route('shop.index')}}" method="GET">
                 <input type="text" name="keyword" value="{{$keyword}}">
@@ -30,3 +34,4 @@
         </table>
     </body>
 </html>
+@endsection
