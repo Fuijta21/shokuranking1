@@ -21,3 +21,10 @@ Route::get('/',[ShopController::class,'index'])
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/mypage/{user}','UserController@profile');
+
+Route::get('/mypage/{post}/edit','UserController@edit');
+
+Route::put('/mypage/{user}','UserController@update');
+
