@@ -12,17 +12,17 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i=1;$i <=30 ; $i++){
-            DB::table('user')->insert([
-                'name'=>"テストユーザ{$i}",
-                'email'=>"test{$i}@example.com",
-                'password'=>"password{$i}",
-                'shoukaibun'=>"{$i}",
+       {
+            DB::table('users')->insert([
+                'name'=>"テストユーザ",
+                'email'=>"test{2}@example.com",
+                'password'=>"password{2}",
+                'shoukaibun'=>"1",
                 'age'=>"3",
                 'gender'=>"otoko",
                 'created_at'=>Carbon::now(),
                 'updated_at'=>Carbon::now(),
                 'deleted_at'=>NULL,]);
-        }
+        
     }
-}
+}}
