@@ -21,4 +21,8 @@ class ShopController extends Controller
         
         return view('index',compact('shops','keyword'));
     }
+    public function profile(User $user)
+    {
+        return view(profile)->with(['user'=>$user]);
+    }
 }

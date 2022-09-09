@@ -16,9 +16,10 @@ class UserController extends Controller
     }
     public function update(Request $request, User $user)
     {
-        $input = $request['user'];
-        $user->fill($input)->save();
-        
-        return redirect('/mypage/' . $user->id);
+        $input_user = $request['user'];
+        $user->fill($input_user)->save();
+
+ 
+        return redirect('/mypage' . $user->shoukaibun);
     }
 }
