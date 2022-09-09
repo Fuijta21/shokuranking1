@@ -15,17 +15,14 @@
     <body>
         <h1>マイページ</h1>
         <p class="edit">[<a href="/mypage/{{$user->id}}/edit">edit</a>]</p>
-
         <div class='myinfo'>
-            @foreach($users as $user)
-            <h2 class='name'>名前　{{$user->name}}</h2>
+
+            <h2 class='name'>名前　{{Auth::user()->name}}</h2>
             <h2 class='age'>年齢{{$user->age}}</h2>
             <h2 class='gender'>性別{{$user->gender}}</h2>
             <h2 class='shoukaibun'>紹介文{{$user->shoukaibun}}</h2>
-
-            @endforeach
         </div>
-        
+
     </body>
 </html>
 @endsection

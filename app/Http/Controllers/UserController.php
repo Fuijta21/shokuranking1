@@ -9,7 +9,7 @@ use App\User;
 class UserController extends Controller
 {
     public function profile(User $user){
-        return view('profile')->with(['users'=>$user->get()]);;
+        return view('profile')->with(['user'=>$user->first()]);;
     }
     public function edit(User $user){
         return view('edit')->with(['user'=>$user]);
