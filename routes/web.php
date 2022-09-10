@@ -22,9 +22,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/mypage/{user}','UserController@profile');
+Route::get('/mypage/','UserController@profile');
 
-Route::get('/mypage/{post}/edit','UserController@edit');
+Route::get('/mypage/edit','UserController@edit');
 
-Route::put('/mypage/{user}','UserController@update');
+Route::put('/mypage/','UserController@update');
 

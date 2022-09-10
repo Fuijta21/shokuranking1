@@ -22,6 +22,7 @@
         </div>
         
         <h1>店一覧</h1>
+        <p class="edit">[<a href="/mypage">mypage</a>]</p>
         <table>
             @forelse($shops as $shop)
             <tr>

@@ -15,7 +15,7 @@
     <body>
     <h1 class='tatile'>マイページ編集画面</h1>
     <div class='content'>
-        <form action="/mypage/{{ $user->id}}" method='POST'>
+        <form action="/mypage/" method='POST'>
             @csrf
             @method('PUT')
             <div class='contet_title'>
