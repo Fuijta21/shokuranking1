@@ -12,7 +12,7 @@ class UserController extends Controller
         return view('profile')->with(['user'=>$user->first()]);;
     }
     public function edit(User $user){
-        return view('edit')->with(['user'=>$user->fitst()]);
+        return view('edit')->with(['user'=>$user]);
     }
     public function update(Request $request, User $user)
     {
