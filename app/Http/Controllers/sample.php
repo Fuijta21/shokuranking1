@@ -1,40 +1,50 @@
+#!/usr/bin/php
 <?php
 
-namespace App\Http\Controllers;
-use App\shop;
-use App\User;
-use Illuminate\Http\Request;
+/**
+ * Yelp Fusion API code sample.
+ *
+ * This program demonstrates the capability of the Yelp Fusion API
+ * by using the Business Search API to query for businesses by a 
+ * search term and location, and the Business API to query additional 
+ * information about the top result from the search query.
+ * 
+ * Please refer to http://www.yelp.com/developers/v3/documentation 
+ * for the API documentation.
+ * 
+ * Sample usage of the program:
+ * `php sample.php --term="dinner" --location="San Francisco, CA"`
+ */
+
+// API key placeholders that must be filled in by users.
+// You can find it on
+// https://www.yelp.com/developers/v3/manage_app
+$API_KEY = '-SYN-7NMIV7v1C0PAdml016g6ESSrLb6f942zSa8hOy9poJoVd0bsHdPBh32USbyK9f3pU_qd6KbysaJbFvVsCxxnewgFlQcRu-9v97Dn3LYnhA6VGMAqbiR4D0iY3Yx';
+
+// Complain if credentials haven't been filled out.
+assert($API_KEY, "Please supply your API key.");
+
+// API constants, you shouldn't have to change these.
+$API_HOST = "https://api.yelp.com";
+$SEARCH_PATH = "/v3/businesses/search";
+$BUSINESS_PATH = "/v3/businesses/";  // Business ID will come after slash.
+
+// Defaults for our simple example.
+$DEFAULT_TERM = "dinner";
+$DEFAULT_LOCATION = "San Francisco, CA";
+$DEFAULT_NAME ="リンガーハット";
+$SEARCH_LIMIT = 3;
 
 
-
-
-
-class ShopController extends Controller
-{
-    
-    public function index(Request $request)
-    {
-        $keyword = $request->input('keyword');
-        
-        $query = shop::query();
-        
-        if(!empty($keyword)){
-            $query->where('keyword','LIKE',"%{$keyword}%")
-            ->orWhere('shop_name','LIKE',"%{$keyword}%");
-        }
-        
-        $shops = $query->get();
-        
-        
-        return view('index',compact('shops','keyword'));
-    }
-        public function profile(User $user)
-    {
-        return view(profile)->with(['user'=>$user]);
-    }
-    
-
-    function request($host, $path, $url_params = array()) {
+/** 
+ * Makes a request to the Yelp API and returns the response
+ * 
+ * @param    $host    The domain host of the API 
+ * @param    $path    The path of the API after the domain.
+ * @param    $url_params    Array of query-string parameters.
+ * @return   The JSON response from the request      
+ */
+function request($host, $path, $url_params = array()) {
     // Send Yelp API Call
     try {
         $curl = curl_init();
@@ -71,7 +81,6 @@ class ShopController extends Controller
             $e->getCode(), $e->getMessage()),
             E_USER_ERROR);
     }
-
     return $response;
 }
 
@@ -82,11 +91,12 @@ class ShopController extends Controller
  * @param    $location    The search location passed to the API 
  * @return   The JSON response from the request 
  */
-function search($term, $location) {
+function search($term, $location,$name) {
     $url_params = array();
     
     $url_params['term'] = $term;
     $url_params['location'] = $location;
+    $url_params['name'] = $name;
     $url_params['limit'] = $GLOBALS['SEARCH_LIMIT'];
     
     return request($GLOBALS['API_HOST'], $GLOBALS['SEARCH_PATH'], $url_params);
@@ -110,8 +120,8 @@ function get_business($business_id) {
  * @param    $term        The search term to query
  * @param    $location    The location of the business to query
  */
-function query_api($term, $location) {     
-    $response = json_decode(search($term, $location));
+function query_api($term, $location,$name) {     
+    $response = json_decode(search($term, $location,$name));
     $business_id = $response->businesses[0]->id;
     
     print sprintf(
@@ -126,30 +136,22 @@ function query_api($term, $location) {
     $pretty_response = json_encode(json_decode($response), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     print "$pretty_response\n";
 }
-function yelp_api($term,$location)
-{
-    assert($API_KEY, "Please supply your API key.");
 
-// API constants, you shouldn't have to change these.
-$API_HOST = "https://api.yelp.com";
-$SEARCH_PATH = "/v3/businesses/search";
-$BUSINESS_PATH = "/v3/businesses/";  // Business ID will come after slash.
-
-// Defaults for our simple example.
-$DEFAULT_TERM = "dinner";
-$DEFAULT_LOCATION = "San Francisco, CA";
-$SEARCH_LIMIT = 3;
-    $longopts  = array(
+/**
+ * User input is handled here 
+ */
+$longopts  = array(
     "term::",
     "location::",
+    "name::",
 );
     
 $options = getopt("", $longopts);
 
 $term = $options['term'] ?: $GLOBALS['DEFAULT_TERM'];
 $location = $options['location'] ?: $GLOBALS['DEFAULT_LOCATION'];
+$name = $options['name'] ?: $GLOBALS['DEFAULT_NAME'];
 
-query_api($term, $location);
-}
-    
-}
+query_api($term, $location　,$name);
+
+?>

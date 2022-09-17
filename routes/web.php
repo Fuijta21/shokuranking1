@@ -28,3 +28,8 @@ Route::get('/mypage/edit','UserController@edit');
 
 Route::put('/mypage/','UserController@update');
 
+Route::get('/yelp','ShopController@yelp_api');
+
+
+
+

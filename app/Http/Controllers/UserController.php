@@ -17,9 +17,11 @@ class UserController extends Controller
     }
     public function update(UserRequest $request)
     {
+
         $input_user = $request['user'];
         $user=User::find(auth()->user()->id);
         $user->fill($input_user)->save();
+        
 
         return redirect('/mypage' );
     }

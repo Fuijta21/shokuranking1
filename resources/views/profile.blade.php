@@ -15,6 +15,7 @@
     <body>
         <h1>マイページ</h1>
         <p class="edit">[<a href="/mypage/edit">edit</a>]</p>
+
         <div class='myinfo'>
 
             <h2 class='name'>名前　{{Auth::user()->name}}</h2>
