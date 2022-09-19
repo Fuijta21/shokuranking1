@@ -33,6 +33,7 @@
             <td>No shop</td>
             @endforelse
         </table>
+        
     </body>
 </html>
 @endsection
