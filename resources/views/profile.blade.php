@@ -4,17 +4,18 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Laravel</title>
-
+        <link rel ='stylesheet' href="/css/profile.css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1>マイページ</h1>
         <p class="edit">[<a href="/mypage/edit">edit</a>]</p>
+
         <div class='myinfo'>
 
             <h2 class='name'>名前　{{Auth::user()->name}}</h2>

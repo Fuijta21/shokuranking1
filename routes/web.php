@@ -17,6 +17,7 @@ use App\Http\Controllers\ShopController;
 
 Route::get('/',[ShopController::class,'index'])
     ->name('shop.index')->middleware('auth');
+Route::post('serch_result','ShopController@yelp_api')->name('shop.search');
 
 Auth::routes();
 
@@ -27,4 +28,9 @@ Route::get('/mypage/','UserController@profile');
 Route::get('/mypage/edit','UserController@edit');
 
 Route::put('/mypage/','UserController@update');
+
+Route::post('/yelp','ShopController@yelp_api');
+
+
+
 

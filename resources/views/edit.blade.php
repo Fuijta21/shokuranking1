@@ -15,9 +15,6 @@
     <body>
     <h1 class='tatile'>マイページ編集画面</h1>
     <div class='content'>
-        <form action="/mypage/" method='POST'>
-            @csrf
-            @method('PUT')
             <div class='name'>
                 <h2>名前</h2>
                 <input type='text' name='user[name]' value='{{$old_user->name}}'>

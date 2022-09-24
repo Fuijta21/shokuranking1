@@ -17,11 +17,7 @@
         <div>
             <form action="{{route('shop.search')}}" method="POST">
                 @csrf
-                <p>場所</p>
-                <input type="text" name="location" value="{{$keyword}}">
-                <br>
-                <p>term</p>
-                <input type="text" name="term">
+                <input type="text" name="keyword">
                 <input type="submit" value="検索">
             </form>
         </div>
@@ -29,14 +25,13 @@
         <h1>店一覧</h1>
         <p class="edit">[<a href="/mypage">mypage</a>]</p>
         <table>
-            @forelse($shops as $shop)
+            @if(isset($shop_info))
             <tr>
-                <td>{{ $shop->shop_name }}</td>
-                <td>{{$shop->keyword}}</td>
+                <a href={{$shop_info->url}}>{{ $shop_info->name }}</a>
             </tr>
-            @empty
+            @else
             <td>No shop</td>
-            @endforelse
+            @endif
         </table>
     </body>
 </html>
