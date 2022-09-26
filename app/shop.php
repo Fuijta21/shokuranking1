@@ -18,4 +18,6 @@ class shop extends Model
         'time',
         'distance',
         'telephone',];
+        
+
 }

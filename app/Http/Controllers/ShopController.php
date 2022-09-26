@@ -98,17 +98,16 @@ class ShopController extends Controller
 		return $this->request($this->API_HOST, $business_path);
 	}
 
-	public function query_api($term, $location)
+	public function query_api($term, $location,$counts)
 	{
 		$response = json_decode($this->search($term, $location));
-		$business_id = $response->businesses[0]->id;
-		dd($business_id);
+		$business_id = $response->businesses[$counts]->id;
 
 		$response = $this->get_business($business_id);
 
 		$pretty_response = json_encode(json_decode($response), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
-		return $pretty_response;
+		return $pretty_response;		
 	}
 
 	public function yelp_api(Request $request)
@@ -130,13 +129,33 @@ class ShopController extends Controller
 			'term::',
 			'location::',
 		];
+		/*$pretty_response=$this->query_api($term, $location,1);
+		$shop_information1=json_decode($pretty_response,false);
 
-		$pretty_response=$this->query_api($term, $location);
+		$pretty_response=$this->query_api($term, $location,2);
+		$shop_information2=json_decode($pretty_response,false);
 		
-		// shop_information 1番目の検索結果
-		$shop_information=json_decode($pretty_response,false);
-		
-		
-		return view('search_result')->with(['shop_info'=>$shop_information]);
+		$pretty_response=$this->query_api($term, $location,3);
+		$shop_information3=json_decode($pretty_response,false);
+
+		return view('search_result')->with(['shop_info'=>$shop_information1,
+											'shop_info2'=>$shop_information2,
+											'shop_info3'=>$shop_information3]);
+											$shop_information=array();
+
+
+	*/
+	$shop_information=array();
+	for($i=0;$i<$SEARCH_LIMIT;$i++){
+    	$pretty_response=$this->query_api($term, $location,$i);
+		$shop_info=json_decode($pretty_response,false);
+    	array_push($shop_information,$shop_info);
+	}
+
+	usort($shop_information, function($a, $b){
+    	return $a->rating> $b->rating? -1: 1;
+	});
+
+	return view('search_result')->with(['shop_info'=>$shop_information]);
 	}
 }
