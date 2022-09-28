@@ -124,7 +124,7 @@ class ShopController extends Controller
 		// Defaults for our simple example.
 		$DEFAULT_TERM = 'dinner';
 		$DEFAULT_LOCATION = 'San Francisco, CA';
-		$SEARCH_LIMIT = 3;
+		$SEARCH_LIMIT = 5;
 		$longopts = [
 			'term::',
 			'location::',
@@ -155,7 +155,7 @@ class ShopController extends Controller
 	usort($shop_information, function($a, $b){
     	return $a->rating> $b->rating? -1: 1;
 	});
-
+	dd($shop_information);
 	return view('search_result')->with(['shop_info'=>$shop_information]);
 	}
 }
