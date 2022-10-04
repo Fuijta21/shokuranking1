@@ -10,14 +10,13 @@ class shop extends Model
     {
         return $this->hasMany('App\evaluation');
     }
-         protected $fillable = [
-        'address',
-        'shop_name',
-        'kakakutai',
-        'keyword',
-        'time',
-        'distance',
-        'telephone',];
-        
 
+         protected $fillable = [
+             'address',
+             'shop_name',
+             'kakakutai',
+             'keyword',
+             'time',
+             'distance',
+             'telephone', ];
 }

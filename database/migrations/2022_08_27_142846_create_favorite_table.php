@@ -19,7 +19,6 @@ class CreateFavoriteTable extends Migration
             $table->integer('shop_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            
         });
     }
 
