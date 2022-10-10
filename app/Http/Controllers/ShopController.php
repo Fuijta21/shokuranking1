@@ -125,12 +125,12 @@ class ShopController extends Controller
         // Defaults for our simple example.
         $DEFAULT_TERM = 'dinner';
         $DEFAULT_LOCATION = 'San Francisco, CA';
-        $SEARCH_LIMIT = 3;
+        $SEARCH_LIMIT = 5;
         $longopts = [
             'term::',
             'location::',
         ];
-        /*$pretty_response=$this->query_api($term, $location,1);
+        $pretty_response=$this->query_api($term, $location,1);
         $shop_information1=json_decode($pretty_response,false);
 
         $pretty_response=$this->query_api($term, $location,2);
