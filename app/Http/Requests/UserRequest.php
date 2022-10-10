@@ -11,7 +11,6 @@ class UserRequest extends FormRequest
      *
      * @return bool
      */
- 
 
     /**
      * Get the validation rules that apply to the request.
@@ -22,7 +21,7 @@ class UserRequest extends FormRequest
     {
         return [
             'user.age' => 'integer | max:110',
-            'photo' =>'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 }
