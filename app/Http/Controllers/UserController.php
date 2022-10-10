@@ -19,7 +19,7 @@ class UserController extends Controller
         return view('edit')->with(['user' => $user, 'old_user' => $old_user]);
     }
 
-    public function update(UserRequest $request)
+    public function update(UserRequest $request, User $user)
     {
         $input_user = $request['user'];
         $user = User::find(auth()->user()->id);

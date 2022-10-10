@@ -19,6 +19,8 @@ Route::get('/', [ShopController::class, 'index'])
     ->name('shop.index')->middleware('auth');
 Route::post('serch_result', 'ShopController@yelp_api')->name('shop.search');
 
+Route::get('currentLocation', 'ShopController@currentLocation')->name('result.curretnLocation');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

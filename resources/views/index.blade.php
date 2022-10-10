@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <!DOCTYPE html>
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,38 +11,38 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
+        <link rel='stylesheet' href="/css/index.css">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
+
     <body>
-        {{Auth::user()->name}}
-        <div>
-            <form action="{{route('shop.search')}}" method="POST">
+        <header class="header">
+            <div class="header-inner inner">
+                <h1 class="header-title"><a href="/">食ランキング</a></h1>
+                <nav class="header-nav">
+                    <ul class="header-nav-list">
+                        <li class="header-nav-item"><a class="header-nav-item-link" href="mypage">最近見たお店</a></li>
+                        <li class="header-nav-item"><a class="header-nav-item-link" href="mypage">mypage</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="box3">
+            <form id="form1" action="{{ route('shop.search') }}" method="POST">
                 @csrf
-                <p>場所</p>
-                <input type="text" name="location" value="{{$keyword}}">
-                <br>
-                <p>term</p>
-                <input type="text" name="term">
-                <input type="submit" value="検索">
+                <p class='kensaku'>飲食店検索</p>
+                <input id="sbox" type="text" name="location" placeholder="場所を入力[例：新宿、渋谷]">
+                <input id="sbox2" type="text" name="term"　placeholder="キーワード[例：居酒屋、店名]">
+                <input id="sbtn" type="submit" value="検索">
             </form>
         </div>
 
-        <div id='map' style='height:500px'></div>
+        <div id='map' style='height30px'></div>
         <script src="{{ asset('/js/maps.js') }}"></script>
-        <script src="https:://maps.googleapis.com/maps/api/js?laguage=ja&region=JP&key=AIzaSyBCzdyBqWWIUDNxjhOj06D1QC_z6xMOoow&callback=initMap" async defer>
-        
-        <h1>店一覧</h1>
-        <p class="edit">[<a href="/mypage">mypage</a>]</p>
-        <table>
-            @forelse($shops as $shop)
-            <tr>
-                <td>{{ $shop->shop_name }}</td>
-                <td>{{$shop->keyword}}</td>
-            </tr>
-            @empty
-            <td>No shop</td>
-            @endforelse
-        </table>
-    </body>
-</html>
-@endsection
+        <script
+            src="https:://maps.googleapis.com/maps/api/js?laguage=ja&region=JP&key=AIzaSyBCzdyBqWWIUDNxjhOj06D1QC_z6xMOoow&callback=initMap"
+            async defer>
+            < /body> < /
+            html >
+            @endsection

@@ -7,6 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href="/css/index.css">
 
         <title>Laravel</title>
 
@@ -15,32 +16,48 @@
     </head>
 
     <body>
+        <header class="header">
+            <div class="header-inner inner">
+                <h1 class="header-title"><a href="/">食ランキング</a></h1>
+                <nav class="header-nav">
+                    <ul class="header-nav-list">
+                        <li class="header-nav-item"><a class="header-nav-item-link" href="mypage">最近見たお店</a></li>
+                        <li class="header-nav-item"><a class="header-nav-item-link" href="mypage">mypage</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <h1 class='tatile'>マイページ編集画面</h1>
-        <div class='content'>
-            <div class='name'>
-                <h2>名前</h2>
-                <input type='text' name='user[name]' value='{{ $old_user->name }}'>
-            </div>
-            <div class='sei'>
-                <label for="sei01" class="col-md-4 col-form label text-md-right">性別</label>
-                <div class='col-md-4'>
-                    <select class='form-control' id='sel01' name='user[gender]' value='{{ $old_user->gender }}'>
-                        <option value="男性">男性</option>
-                        <option value="女性" selected>女性</option>
-                    </select>
+        <form action="/mypage" method="POST">
+
+            @method('PUT')
+            @csrf
+            <div class='content'>
+                <div class='name'>
+                    <h2>名前</h2>
+                    <input type='text' name='user[name]' value='{{ $old_user->name }}'>
                 </div>
-            </div>
-            <div class='age'>
-                <h2>年齢</h2>
-                <input type='text' name='user[age]' value='{{ $old_user->age }}'>
-                <p class='age_error' style="color:red">{{ $errors->first('user.age') }}</p>
-            </div>
-            <div class='contet_title'>
-                <h2>紹介文</h2>
-                <input type='text' name='user[shoukaibun]' value='{{ $old_user->shoukaibun }}'>
-            </div>
-            <input type='submit' value="保存">
-            </form>
+                <div class='sei'>
+                    <label for="sei01" class="col-md-4 col-form label text-md-right">性別</label>
+                    <div class='col-md-4'>
+                        <select class='form-control' name='user[gender]' value='{{ $old_user->gender }}'>
+                            <option value="男性">男性</option>
+                            <option value="女性" selected>女性</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class='age'>
+                    <h2>年齢</h2>
+                    <input type='text' name='user[age]' value='{{ $old_user->age }}'>
+                    <p class='age_error' style="color:red">{{ $errors->first('user.age') }}</p>
+                </div>
+                <div class='contet_title'>
+                    <h2>紹介文</h2>
+                    <input type='text' name='user[shoukaibun]' value='{{ $old_user->shoukaibun }}'>
+                </div>
+                <input type='submit' value="保存">
+        </form>
         </div>
     </body>
 
