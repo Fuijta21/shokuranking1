@@ -18,9 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('shoukaibun');
-            $table->string('age');
-            $table->string('gender');
+            $table->string('shoukaibun')->nullable(true);
+            $table->string('age')->nullable(true);
+            $table->string('gender')->nullable(true);
             $table->timestamps();
             $table->softDeletes();
         });
