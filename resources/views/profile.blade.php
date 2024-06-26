@@ -3,7 +3,7 @@
 @section('content')
     <!DOCTYPE html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <link rel='stylesheet' href="/css/index.css">
+    <link rel='stylesheet' href="/css/profile.css">
 
     <head>
 
@@ -16,26 +16,20 @@
     </head>
 
     <body>
-        <header class="header">
-            <div class="header-inner inner">
-                <h1 class="header-title"><a href="/">食ランキング</a></h1>
-                <nav class="header-nav">
-                    <ul class="header-nav-list">
-                        <li class="header-nav-item"><a class="header-nav-item-link" href="mypage">最近見たお店</a></li>
-                        <li class="header-nav-item"><a class="header-nav-item-link" href="mypage">mypage</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+       <div id = zentai >
         <h1>マイページ</h1>
-        <p class="edit">[<a href="/mypage/edit">edit</a>]</p>
+        <div id=edit_flex>
+        <p class="edit">[<a href="/mypage/edit">編集</a>]</p>
         <p class="profile">[<a href="/">戻る</a>]</p>
+        </div>
         <div class='myinfo'>
 
             <h2 class='name'>名前　{{ Auth::user()->name }}</h2>
-            <h2 class='age'>年齢{{ $user->age }}</h2>
-            <h2 class='gender'>性別{{ $user->gender }}</h2>
-            <h2 class='shoukaibun'>紹介文{{ $user->shoukaibun }}</h2>
+            <h2 class='age'>年齢  {{ $user->age }}</h2>
+            <h2 class='gender'>性別  {{ $user->gender }}</h2>
+            <h2 class='shoukaibun'>紹介文</h2>
+            <h3 clsss='shoukaibody'>{{ $user->shoukaibun }}</h3>
+        </div>
         </div>
 
     </body>
