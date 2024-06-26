@@ -16,7 +16,7 @@
 use App\Http\Controllers\ShopController;
 
 Route::get('/', [ShopController::class, 'index'])
-    ->name('shop.index')->middleware('auth');
+    ->name('shop.index')->middleware('auth'); //認証機能のためのもの
 Route::post('serch_result', 'ShopController@yelp_api')->name('shop.search');
 
 Route::get('currentLocation', 'ShopController@currentLocation')->name('result.curretnLocation');

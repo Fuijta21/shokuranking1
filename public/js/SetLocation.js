@@ -1,3 +1,4 @@
+
 function setLocation(pos) {
     //緯度・経度を取得
     const lat = pos.coords.latitude;
@@ -5,6 +6,8 @@ function setLocation(pos) {
 
     $(".lat_input").val(lat);
     $(".lng_input").val(lng);
+    console.log(lat);
+    console.log(lng);
 }
 
 function showErr(err){

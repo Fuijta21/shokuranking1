@@ -1,0 +1,316 @@
+
+main {
+    padding-top: 80px
+}
+#sbox{
+width: 350px;
+height:50px;
+border-radius:5px
+}
+
+.search_box {
+    left:50px;
+  display: inline-block; /* なくても大丈夫だけど、念の為 */
+  position: relative;    /* 基準値とする */
+  width: 350px;
+  outline:0;/*クリック時の青い枠線消す*/
+  height:100px;/*検索ボックスの高さ*/
+}
+
+.search_box::before {
+  content: "";           /* 疑似要素に必須 */
+  width: 25px;           /* アイコンの横幅 */
+  height: 25px;          /* アイコンの高さ */
+  background: url(../fig/tizu.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
+  display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+  position: absolute;    /* 相対位置に指定 */
+  top: 12px;              /* アイコンの位置。微調整してね */
+  left: 5px;             /* アイコンの位置。微調整してね */
+}
+
+.search_box input {
+  padding: 10px 0 10px 40px; /* アイコンを設置するため左の余白を多めに指定*/
+}
+
+.search_box2 {
+  left:55px;
+  display: inline-block; /* なくても大丈夫だけど、念の為 */
+  position: relative;    /* 基準値とする */
+  width: 350px;
+  outline:0;/*クリック時の青い枠線消す*/
+  height:100px;/*検索ボックスの高さ*/
+}
+
+.search_box2::before {
+  content: "";           /* 疑似要素に必須 */
+  width: 25px;           /* アイコンの横幅 */
+  height: 25px;          /* アイコンの高さ */
+  background: url(../fig/kensaku.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
+  display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+  position: absolute;    /* 相対位置に指定 */
+  top: 12px;              /* アイコンの位置。微調整してね */
+  left: 5px;             /* アイコンの位置。微調整してね */
+}
+
+.search_box2 input {
+  padding: 10px 0 10px 40px; /* アイコンを設置するため左の余白を多めに指定*/
+}
+
+#sbox2{
+/*フォームの絶対位置*/
+width: 350px;
+height:50px;
+border-radius:5px
+}
+
+/*検索ボタン*/
+#sbtn{
+width:100px;/*検索ボタンの横幅*/
+height:50px;/*検索ボタンの縦幅*/
+position:relative;/*検索ボタンの絶対位置*/
+left:60px;/*検索ボタンの位置調整*/
+
+border-radius:5px;;/*検索ボタンの角を丸める*/
+background:#D11C2C;/*検索ボタンの背景カラー*/
+border:none;/*検索ボタンの枠線を消す*/
+color:#fff;/*検索ボタンのテキストカラー*/
+font-weight:bold;/*検索ボタンのテキスト太字*/
+font-size:16px;/*検索ボタンのフォントサイズ*/
+}
+/*検索ボタンマウスオーバー時*/
+#sbtn:hover{
+color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
+}
+ .kensaku{
+     font-size: 20px;
+     padding-top:5px;
+     padding-left: 5px;
+ }
+
+.box3 {
+padding: 10px 30 10px 30px;
+margin: 1em auto;
+width: 900px;
+border: 1px solid #ccc; /* 枠線 */
+ background-color: #fff; /* 背景色 */
+ box-shadow: 1px 1px 2px #ccc;
+ border-radius:5px
+}
+
+#image_size {
+position: relative;
+left:0;
+width: 220px;
+height: 220px;
+}
+
+#map {
+    height:400px;
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.flex{
+    display: flex;
+    position: relative;
+    width:900px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .05), 0 0 6px rgba(0, 0, 0, .15);
+
+}
+.flex>p h2{
+    width:10%;
+}
+#kensakukekka{
+    width:900px;
+    margin-right: auto;
+    margin-left: auto;
+    }
+.carousel-container {
+  width: 40%;
+  height: 200px;
+  margin: 0 10px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform .3s;
+}
+.box {
+  height: 100%;
+  min-width: 100%;
+}
+.img {
+    height: 100%;
+  min-width: 100%;
+}
+
+#lt,
+#gt {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .8);
+  color: #fff;
+  font-size: 24px;
+  padding: 0 6px;
+  cursor: pointer;
+}
+
+#lt {
+  left: 8px;
+}
+
+#gt {
+  right: 8px;
+}
+
+#lt:hover,
+#gt:hover {
+  opacity: .8;
+}
+
+.hidden {
+  display: none;
+}
+
+.rank{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+     top: 0px;
+  left: 5px;
+}
+.ra {
+    position: relative;
+    height: 40px;
+    width: 40px;
+}
+.ran{
+    width: 100%;
+    height:100%;
+    position: relative;
+}
+#category1{
+    white-space: nowrap;
+    margin-right: 6px;
+}
+#category_flex{
+    display: flex;
+}
+.ran1{
+    position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 24px;
+  padding: 0 6px;
+  cursor: pointer;
+  left: 8px;
+    /*display:inline;*/
+    /*width: 100%;*/
+    /*height:100%;*/
+    /*position: absolute;*/
+    /*left:50%;*/
+    /*top :50%;*/
+    /*transform: translate(-50%, -50%);*/
+    /*font-family: "Helvetica Neue", sans-serif;*/
+    /*font-size: 30px;*/
+    /*color: white;*/
+}
+.star5_rating{
+	position: relative;
+	z-index: 0;
+	display: inline-block;
+	white-space: nowrap;
+	color: #CCCCCC;
+}
+
+.star5_rating:before, .star5_rating:after{
+    content: '★★★★★';
+}
+
+.star5_rating:after{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #ffcf32;
+}
+/*星評価のためのもの*/
+.star5_rating[data-rate="5"]:after{ width: 100%; }
+.star5_rating[data-rate="4.9"]:after{ width: 98%; }
+.star5_rating[data-rate="4.8"]:after{ width: 96%; }
+.star5_rating[data-rate="4.7"]:after{ width: 94%; }
+.star5_rating[data-rate="4.6"]:after{ width: 92%; }
+.star5_rating[data-rate="4.5"]:after{ width: 90%; }
+.star5_rating[data-rate="4.4"]:after{ width: 88%; }
+.star5_rating[data-rate="4.3"]:after{ width: 86%; }
+.star5_rating[data-rate="4.2"]:after{ width: 84%; }
+.star5_rating[data-rate="4.1"]:after{ width: 82%; }
+.star5_rating[data-rate="4"]:after{ width: 80%; }
+.star5_rating[data-rate="3.9"]:after{ width: 78%; }
+.star5_rating[data-rate="3.8"]:after{ width: 76%; }
+.star5_rating[data-rate="3.7"]:after{ width: 74%; }
+.star5_rating[data-rate="3.6"]:after{ width: 72%; }
+.star5_rating[data-rate="3.5"]:after{ width: 70%; }
+.star5_rating[data-rate="3.4"]:after{ width: 68%; }
+.star5_rating[data-rate="3.3"]:after{ width: 66%; }
+.star5_rating[data-rate="3.2"]:after{ width: 64%; }
+.star5_rating[data-rate="3.1"]:after{ width: 62%; }
+.star5_rating[data-rate="3"]:after{ width: 60%; }
+.star5_rating[data-rate="2.9"]:after{ width: 58%; }
+.star5_rating[data-rate="2.8"]:after{ width: 56%; }
+.star5_rating[data-rate="2.7"]:after{ width: 54%; }
+.star5_rating[data-rate="2.6"]:after{ width: 52%; }
+.star5_rating[data-rate="2.5"]:after{ width: 50%; }
+.star5_rating[data-rate="2.4"]:after{ width: 48%; }
+.star5_rating[data-rate="2.3"]:after{ width: 46%; }
+.star5_rating[data-rate="2.2"]:after{ width: 44%; }
+.star5_rating[data-rate="2.1"]:after{ width: 42%; }
+.star5_rating[data-rate="2"]:after{ width: 40%; }
+.star5_rating[data-rate="1.9"]:after{ width: 38%; }
+.star5_rating[data-rate="1.8"]:after{ width: 36%; }
+.star5_rating[data-rate="1.7"]:after{ width: 34%; }
+.star5_rating[data-rate="1.6"]:after{ width: 32%; }
+.star5_rating[data-rate="1.5"]:after{ width: 30%; }
+.star5_rating[data-rate="1.4"]:after{ width: 28%; }
+.star5_rating[data-rate="1.3"]:after{ width: 26%; }
+.star5_rating[data-rate="1.2"]:after{ width: 24%; }
+.star5_rating[data-rate="1.1"]:after{ width: 22%; }
+.star5_rating[data-rate="1"]:after{ width: 20%; }
+.star5_rating[data-rate="0.9"]:after{ width: 18%; }
+.star5_rating[data-rate="0.8"]:after{ width: 16%; }
+.star5_rating[data-rate="0.7"]:after{ width: 14%; }
+.star5_rating[data-rate="0.6"]:after{ width: 12%; }
+.star5_rating[data-rate="0.5"]:after{ width: 10%; }
+.star5_rating[data-rate="0.4"]:after{ width: 8%; }
+.star5_rating[data-rate="0.3"]:after{ width: 6%; }
+.star5_rating[data-rate="0.2"]:after{ width: 4%; }
+.star5_rating[data-rate="0.1"]:after{ width: 2%; }
+.star5_rating[data-rate="0"]:after{ width: 0%; }
+/*上右下←*/
+#name{
+    margin: 10px 5px 10px 5px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #0000cd;
+    font-family:'メイリオ', 'Meiryo', sans-serif;
+}
+
+#category1,#category2,#jusyo,#denwa{
+    font-size: 13px;
+    font-family:'メイリオ', 'Meiryo', sans-serif;
+}
+
+.number_rating{
+    font-size: 25px;
+    font-family:'メイリオ', 'Meiryo', sans-serif;
+}

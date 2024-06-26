@@ -109,6 +109,7 @@ abbr[data-original-title] {
   border-bottom: 0;
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
+           color: red;
 }
 
 address {
@@ -4453,6 +4454,7 @@ input[type=button].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  font-size: 14px;
 }
 
 .nav-link:hover,
@@ -4490,12 +4492,12 @@ input[type=button].btn-block {
   border-color: transparent;
 }
 
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
-  color: #495057;
-  background-color: #f8fafc;
-  border-color: #dee2e6 #dee2e6 #f8fafc;
-}
+/*.nav-tabs .nav-link.active,*/
+/*.nav-tabs .nav-item.show .nav-link {*/
+/*  color: #495057;*/
+/*  background-color: #f8fafc;*/
+/*  border-color: #dee2e6 #dee2e6 #f8fafc;*/
+/*}*/
 
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -4562,9 +4564,10 @@ input[type=button].btn-block {
   padding-top: 0.32rem;
   padding-bottom: 0.32rem;
   margin-right: 1rem;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   line-height: inherit;
   white-space: nowrap;
+  color:#D11C2C;
 }
 
 .navbar-brand:hover,
@@ -4897,7 +4900,7 @@ input[type=button].btn-block {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
+  color: #D11C2C;
 }
 
 .navbar-light .navbar-brand:hover,
@@ -8701,7 +8704,7 @@ button.bg-dark:focus {
 
 .pb-4,
 .py-4 {
-  padding-bottom: 1.5rem !important;
+  padding-bottom: 0.5rem !important;
 }
 
 .pl-4,
@@ -10886,6 +10889,7 @@ a.text-dark:focus {
 
   abbr[title]::after {
     content: " (" attr(title) ")";
+     color: red;
   }
 
   pre {

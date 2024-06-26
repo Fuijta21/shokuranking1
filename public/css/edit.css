@@ -1,0 +1,42 @@
+.content{
+    margin:auto;
+    width:900px;
+    positionr:relative;
+}
+.col-md-4, .age {
+    width:200px;
+}
+.shokai {
+    width:600px;
+    height:300px;
+}
+.shokai{
+    word-wrap: break-word;
+    white-space: pre-wrap;;
+    width:900px;
+    font-size: 20px;
+}
+.from-control {
+    padding:0 0 0 0;
+}
+
+.col-md-3 {
+    text-align:left;
+    padding:0 0 0 0;
+}
+
+.col-md-4 {
+    padding:0 0 0 0;
+}
+
+.sei,.age,.age,.shokai{
+    margin-bottom:10px;
+}
+.inp {
+    width:200px;
+    height:30px;
+}
+#hozon {
+    width:50px;
+    height:30px;
+}
