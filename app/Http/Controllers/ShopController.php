@@ -93,7 +93,7 @@ class ShopController extends Controller
 
         $url_params['term'] = $term;
         $url_params['location'] = $location;
-        $url_params['limit'] = 30; //引っ張ってくる店の個数
+        $url_params['limit'] = 10; //引っ張ってくる店の個数
 
         return $this->request($this->API_HOST, $this->SEARCH_PATH, $url_params); //$thisはShopController
     }

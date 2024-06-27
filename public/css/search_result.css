@@ -126,7 +126,7 @@ height: 220px;
     margin-left: auto;
     }
 .carousel-container {
-  width: 40%;
+  width: 30%;
   height: 200px;
   margin: 0 10px 0 0;
   overflow: hidden;
@@ -148,8 +148,8 @@ height: 220px;
   min-width: 100%;
 }
 
-#lt,
-#gt {
+.lt,
+.gt {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -162,16 +162,16 @@ height: 220px;
   cursor: pointer;
 }
 
-#lt {
+.lt {
   left: 8px;
 }
 
-#gt {
+.gt {
   right: 8px;
 }
 
-#lt:hover,
-#gt:hover {
+.lt:hover,
+.gt:hover {
   opacity: .8;
 }
 

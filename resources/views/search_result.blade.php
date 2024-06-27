@@ -68,14 +68,14 @@
            @if($key  < 9)
            <div class='flex'>
                 <div class="carousel-container">
-                    <div class="carousel">
+                    <div class="carousel" id="carousel-{{$key}}">
                         <div class="box box-1"><img src="{{$shop->photos[0]}}"  class="img image_size1"></div>
                         <div class="box box-2"><img src="{{$shop->photos[1]}}"   class="img image_size2"></div>
                         <div class="box box-3"><img src="{{$shop->photos[2]}}"   class="img image_size3"></div>
                         {{--<div class="box box-4"><img src="{{$shop->photos[3]}}"  id="image_size4"></div>--}}
                     </div>
-                    <button id="lt"><</button>
-                    <button id="gt">></button>
+                    <button class="lt" id="lt-{{$key}}"><</button>
+                    <button class="gt" id="gt-{{$key}}">></button>
                     @if($key==0)
                     <div class="rank">
                         <dev  class='ra'>
@@ -88,7 +88,7 @@
                     <p class="ran1">2</p></div></dev>
                     @elseif($key==2)
                     <div class="rank"><dev class='ra'><img src="../fig/dou.png"   class="ran ranking1">
-                    <p class="ran1">2</p></div></dev>
+                    <p class="ran1">3</p></div></dev>
                     @else
                     <div class="rank"><dev class='ra'><img src="../fig/aka.png"   class="ran ranking1">
                     <p class="ran1">{{$key}}</p></div></dev>

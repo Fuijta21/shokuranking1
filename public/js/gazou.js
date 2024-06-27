@@ -1,46 +1,46 @@
 // gazou.js
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.carousel-container').forEach((container, index) => {
+            const lt = container.querySelector('.lt');
+            const gt = container.querySelector('.gt');
+            const carousel = container.querySelector('.carousel');
+            const boxes = carousel.querySelectorAll('.box');
+            let currentIndex = 0;
 
-    const lt = document.getElementById('lt');
-    const gt = document.getElementById('gt');
-    const carousel = document.querySelector('.carousel');
-    const boxes = document.querySelectorAll('.box');
-    let index = 0;
+            function updateButtons() {
+                lt.classList.remove('hidden');
+                gt.classList.remove('hidden');
 
-    function updatebtn() {
-        lt.classList.remove('hidden');
-        gt.classList.remove('hidden');
+                if (currentIndex === 0) {
+                    lt.classList.add('hidden');
+                }
 
-        if (index === 0) {
-            lt.classList.add('hidden');
-        }
+                if (currentIndex === boxes.length - 1) {
+                    gt.classList.add('hidden');
+                }
+            }
 
-        if (index === 2) {
-            gt.classList.add('hidden');
-        }
-    }
+            function moveCarousel() {
+                const boxWidth = boxes[0].getBoundingClientRect().width;
+                carousel.style.transform = `translateX(${-1 * boxWidth * currentIndex}px)`;
+            }
 
-    function moveBoxes() {
-        const boxWidth = boxes[0].getBoundingClientRect().width;
-        carousel.style.transform = `translateX(${-1 * boxWidth * index}px)`;
-    }
+            updateButtons();
 
-    updatebtn();
+            gt.addEventListener('click', () => {
+                currentIndex++;
+                updateButtons();
+                moveCarousel();
+            });
 
-    gt.addEventListener('click', () => {
-        index++;
-        updatebtn();
-        moveBoxes();
+            lt.addEventListener('click', () => {
+                currentIndex--;
+                updateButtons();
+                moveCarousel();
+            });
+
+            window.addEventListener('resize', () => {
+                moveCarousel();
+            });
+        });
     });
-
-    lt.addEventListener('click', () => {
-        index--;
-        updatebtn();
-        moveBoxes();
-    });
-
-
-    window.addEventListener('resize', () => {
-        moveBoxes();
-    });
-});
